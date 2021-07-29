@@ -7,6 +7,7 @@ use App\Form\AuteurType;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class AuteurController extends AbstractController
@@ -25,8 +26,13 @@ class AuteurController extends AbstractController
     public function CreaAuteur(){
         $NouvelAuteur = new Auteur("","","");
         $formuAuteur = $this->createForm(AuteurType::class, $NouvelAuteur);
-        $this->render("auteur/creationNouvelAuteur.html.twig",["formulaire"=>$formuAuteur]);
+        $requete = Request::createFromGlobals();
+        $formuAuteur->handleRequest($requete);
+        if ($formuAuteur->isSubmitted() && $formuAuteur->isValid()) {
+            $NouvelAuteur = $formuAuteur->getData();
+            $this->render("auteur/auteurcree.html.twig",[]);
+        }
+        else
+            return $this->render("auteur/creationNouvelAuteur.html.twig",["formulaire"=>$formuAuteur->createView()]);
     }
-
-
 }
