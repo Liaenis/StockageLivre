@@ -39,10 +39,7 @@ class Auteur
      */
     private $listeLivre;
 
-    public function __construct($paraNom, $paraPrenom, $paraBio){
-        $this->nom = $paraNom;
-        $this->prenom = $paraPrenom;
-        $this->biographie = $paraBio;
+    public function __construct(){
         $this->listeLivre = new ArrayCollection();
     }
 

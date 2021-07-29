@@ -34,8 +34,7 @@ class Livre
      */
     private $Auteurs;
 
-    public function __construct()
-    {
+    public function __construct(){
         $this->Auteurs = new ArrayCollection();
     }
 
