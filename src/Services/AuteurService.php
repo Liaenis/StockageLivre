@@ -16,8 +16,9 @@ class AuteurService {
         $this->_enManager->persist($paraAuteur);
         $this->_enManager->flush();
     }
-    public function majAuteur(){
-
+    public function majAuteur(Auteur $paraAuteur){
+        //a faire
+        $this->_enManager->flush();
     }
     public function lireAuteur($paraID){
         $find = false;
