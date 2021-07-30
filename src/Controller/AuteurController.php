@@ -43,6 +43,8 @@ class AuteurController extends AbstractController
      * @Route("/auteur/ListeAuteurs", name="Liste_Auteurs")
      */
     public function afficherAuteurs(AuteurService $paraAuteurService){
-
+        $listeAuteurs =$paraAuteurService->obtenirListeAuteurs();
+        return $this->render('auteur/list.html.twig',
+            ['auteurlist'=>$listeAuteurs]);
     }
 }

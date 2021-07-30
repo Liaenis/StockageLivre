@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Liste des auteurs {% endblock %}
+
+<h2> liste des auteurs </h2>
+
+<ul>
+<div class="example-wrapper">
+   {% for auteur in auteurlist %}
+    <li>{{auteur.nom}}
+        {{auteur.prenom}}
+        {{auteur.biographie}}
+        {% for livre in auteur.listeLivre %}
+            {{livre.titre}} 
+        {% endfor %}
+   </li>
+   {% endfor %}
+</ul>
+{% block body %}

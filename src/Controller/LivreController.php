@@ -37,4 +37,12 @@ class LivreController extends AbstractController
         else
             return $this->render("auteur/creationNouvelAuteur.html.twig",["formulaire"=>$formuLivre->createView()]);
     }
+    /**
+     * @Route("/livre/ListeAuteurs", name="Liste_Livres")
+     */
+    public function afficherAuteurs(LivreService $paraLivreService){
+        $listelivres =$paraLivreService->obtenirListeAuteurs();
+        return $this->render('livre/list.html.twig',
+            ['liste_livre'=>$listelivres]);
+    }
 }
