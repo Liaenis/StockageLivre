@@ -7,6 +7,7 @@ use App\Form\AuteurType;
 use App\Services\AuteurService;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -37,5 +38,11 @@ class AuteurController extends AbstractController
         }
         else
             return $this->render("auteur/creationNouvelAuteur.html.twig",["formulaire"=>$formuAuteur->createView()]);
+    }
+    /**
+     * @Route("/auteur/ListeAuteurs", name="Liste_Auteurs")
+     */
+    public function afficherAuteurs(AuteurService $paraAuteurService){
+
     }
 }

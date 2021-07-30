@@ -8,6 +8,7 @@ use Doctrine\ORM\EntityManagerInterface;
 class AuteurService {
 
     private $_enManager;
+    private $_listeAuteurs;
 
     public function __construct(EntityManagerInterface $paraEnManager){
         $this->_enManager = $paraEnManager;
@@ -36,6 +37,6 @@ class AuteurService {
         }
     }
     public function obtenirListeAuteurs(){
-
+        return $this->_listeAuteurs;
     }
 }

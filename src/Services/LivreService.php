@@ -8,6 +8,7 @@ use Doctrine\ORM\EntityManagerInterface;
 class LivreService {
 
     private $_enManager;
+    private $_listelivres;
 
     public function __construct(EntityManagerInterface $paraEnManager){
         $this->$_enManager = $paraEnManager;
@@ -35,5 +36,8 @@ class LivreService {
             $this->_entityManager->remove($livre['Livre']);
             $this->_entityManager->flush();
         }
+    }
+    public function obtenirListeLivres(){
+        return $this->_listelivres;
     }
 }
